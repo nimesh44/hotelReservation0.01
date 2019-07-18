@@ -151,7 +151,16 @@ img {
   background: var(--light-color);
   color: #333;
 }
-
+.alerts {
+  padding: 0.8rem;
+  margin-top: 1rem 0;
+  margin-bottom: 1rem 0;
+  margin-left: 20%;
+  margin-right: 20%;
+  opacity: 0.9;
+  background: var(--light-color);
+  color: #333;
+}
 .alert {
   padding: 0.8rem;
   margin: 1rem 0;
@@ -598,4 +607,40 @@ button {
   margin-top: 3%;
   margin-right: 20%;
   margin-bottom: 2%;
+}
+.alert-django {
+  background: var(--danger-color);
+  color: #fff;
+}
+.search-1 {
+  width: 30%;
+  border: 3px solid red;
+  border-right: none;
+  padding: 0px;
+  height: 40px;
+  margin-top: 80px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  padding: 5px;
+  color: violet;
+  font-size: 20px;
+}
+.btn-search-1 {
+  width: 100px;
+  height: 40x;
+  border: 5px solid #00b4cc;
+  background: #00b4cc;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  margin-top: 80px;
+  font-size: 19px;
+}
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  width: 50%;
+  position: absolute;
+  top: 5%;
+  left: 20%;
 }

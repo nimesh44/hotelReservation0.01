@@ -33,7 +33,7 @@ const Register = ({ setAlert }) => {
     if (password !== password2) {
       // console.log("password do not match");
       // props.setAlert("Passwords do not match", "danger");// removed after destructuring
-      setAlert("Passwords do not match", "danger");
+      setAlert("Passwords do not match", "django");
     } else {
       console.log(formData);
 
