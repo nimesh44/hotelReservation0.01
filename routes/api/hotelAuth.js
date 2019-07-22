@@ -37,7 +37,7 @@ router.post(
   "/",
   [
     check("email", "Please Enter a valid email").isEmail(),
-    check("password", "Password is required").exists()
+    check("password", "Please Enter a password with minimum length 8").exists()
   ],
   async (req, res) => {
     // console.log(req.body);

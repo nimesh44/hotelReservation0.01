@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from "react";
 // Importing connect to connect react with redux
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 // Importing actions
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
 // // Included to send using react (1  section)
@@ -11,7 +12,7 @@ import PropTypes from "prop-types";
 
 // const Register = () => { // Removed while using redux
 // const Register = props => { //Destructuring to remove props
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   // formData is the state where the all the object properties are stored
   // setFormData is the function to change the object properties
   const [formData, setFormData] = useState({
@@ -35,6 +36,7 @@ const Register = ({ setAlert }) => {
       // props.setAlert("Passwords do not match", "danger");// removed after destructuring
       setAlert("Passwords do not match", "django");
     } else {
+      register({ name, email, password });
       console.log(formData);
 
       //   // Using  react (1 section)
@@ -60,6 +62,10 @@ const Register = ({ setAlert }) => {
       //   }
     }
   };
+  // Redirect if already Authenticated
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Fragment>
@@ -76,7 +82,7 @@ const Register = ({ setAlert }) => {
               name="name"
               value={name}
               onChange={e => onChange(e)}
-              required
+              // required//Just checking from backEnd
             />
           </div>
           <div className="form-group">
@@ -123,10 +129,18 @@ const Register = ({ setAlert }) => {
   );
 };
 
+// Defining the propTypes for different actions
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 };
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+// Exporting our actions
 export default connect(
-  null,
-  { setAlert }
+  mapStateToProps,
+  { setAlert, register }
 )(Register);

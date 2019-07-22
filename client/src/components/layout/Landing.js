@@ -2,42 +2,95 @@ import React from "react";
 
 const Landing = () => {
   return (
-    <section className="landing">
-      <div className="wrap">
-        <form className="search">
-          <input
-            type="text"
-            className="search-1"
-            placeholder="check in check out"
-            name="search1"
-          />
-          <input
-            type="text"
-            className="search-1"
-            placeholder="adult children room"
-            name="search2"
-          />
-          <button type="submit" className="btn-search-1">
-            Search
-          </button>
-        </form>
-      </div>
-      {/* <div className="dark-overlay">
-        <form className="example">
-          <input type="text" placeholder="Search.." name="search2" />
-          <button type="submit">
-            <i className="fa fa-search" />
-          </button>
-        </form>
-        <div className="landing-inner">
-          <h1 className="x-large">Hotel Reservation</h1>
-          <p className="lead">
-            Find and reserve Hotel accordance to your requirements.Reseve and
-            stay happy.
-          </p>
+    <div>
+      <div id="booking" className="section">
+        <div className="section-center">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-7 col-md-push-5">
+                <div className="booking-cta">
+                  <h1>Make your reservation</h1>
+                </div>
+              </div>
+              <div className="col-md-4 col-md-pull-7">
+                <div className="booking-form">
+                  <form>
+                    <div className="form-group">
+                      <span className="form-label">Your Destination</span>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Enter a destination or hotel name"
+                      />
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-6">
+                        <div className="form-group">
+                          <span className="form-label">Check In</span>
+                          <input
+                            className="form-control"
+                            type="date"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-sm-6">
+                        <div className="form-group">
+                          <span className="form-label">Check out</span>
+                          <input
+                            className="form-control"
+                            type="date"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-4">
+                        <div className="form-group">
+                          <span className="form-label">Rooms</span>
+                          <select className="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                          </select>
+                          <span className="select-arrow" />
+                        </div>
+                      </div>
+                      <div className="col-sm-4">
+                        <div className="form-group">
+                          <span className="form-label">Adults</span>
+                          <select className="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                          </select>
+                          <span className="select-arrow" />
+                        </div>
+                      </div>
+                      <div className="col-sm-4">
+                        <div className="form-group">
+                          <span className="form-label">Children</span>
+                          <select className="form-control">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                          </select>
+                          <span className="select-arrow" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-btn">
+                      <button className="submit-btn">Check availability</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div> */}
-    </section>
+      </div>
+    </div>
   );
 };
 

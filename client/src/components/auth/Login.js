@@ -1,6 +1,11 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
-const Login = () => {
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { login } from "../../actions/auth";
+import PropTypes from "prop-types";
+
+// Destructuring for props.login inside parenthesis of Login
+const Login = ({ login, isAuthenticated }) => {
   // formData is the state where the all the object properties are stored
   // setFormData is the function to change the object properties
   const [formData, setFormData] = useState({
@@ -16,9 +21,14 @@ const Login = () => {
   const onSubmit = async e => {
     // Preventing default submit
     e.preventDefault();
+    login(email, password);
     console.log(formData);
   };
 
+  // Redirectd if logged in
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <Fragment>
       <div className="box-create">
@@ -56,5 +66,17 @@ const Login = () => {
     </Fragment>
   );
 };
+// login is prop so set propTypes
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+};
 
-export default Login;
+//
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);
